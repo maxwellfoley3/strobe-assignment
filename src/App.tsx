@@ -30,7 +30,6 @@ const fileTypes = ["EML"];
 
 function App() {
   const [step, setStep] = useState(1)
-  const [address, setAddress] = useState<string | null>(null);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
   const [txHash, setTxHash] = useState<string | null>(null);
 
