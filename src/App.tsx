@@ -66,8 +66,7 @@ function App() {
   async function connect() {
     setErrorMessage(null)
     try { 
-      const [_address] = await client.requestAddresses()
-      setAddress(_address)
+      await client.requestAddresses()
       setStep(3)
     } catch (e) {
       console.error("e", e.message)
@@ -119,7 +118,10 @@ function App() {
           <div>
             <h3>Step 2: Connect wallet</h3>
             <div><button onClick={() => connect()}>Connect Wallet</button></div>
-            <div><button onClick={() => setStep(1)}>Back</button></div>
+            <div><button onClick={() => {
+              setStep(1)
+              setErrorMessage(null)
+            }}>Back</button></div>
           </div>
         )
       }
